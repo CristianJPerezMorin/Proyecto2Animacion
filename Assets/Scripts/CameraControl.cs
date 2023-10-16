@@ -41,6 +41,6 @@ public class CameraControl : MonoBehaviour
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offsetY, player.transform.position.z - offsetZ);
         }
 
-        transform.LookAt(enemy.transform);
+        //transform.LookAt(enemy.transform);
     }
 }

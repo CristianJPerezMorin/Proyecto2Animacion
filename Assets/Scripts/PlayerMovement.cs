@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jump)
             {
-                fisicas.AddForce(Vector3.up * 5, ForceMode.Impulse);
+                fisicas.AddForce(Vector3.up * 10, ForceMode.Impulse);
                 jump = false;
             }
         }
