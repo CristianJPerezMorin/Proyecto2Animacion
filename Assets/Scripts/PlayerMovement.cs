@@ -23,8 +23,6 @@ public class PlayerMovement : MonoBehaviour
         audio = GameObject.Find("SonidoRecoger").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        particulas.startColor = Color.yellow;
-
         speed = 8;
         coleccionables = 0;
     }
