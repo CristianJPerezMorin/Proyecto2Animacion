@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject panel;
-    GameObject Terrain, Player, Enemy;
-    GameObject[] listOfItems;
+    public GameObject Player;
+    public GameManager manager;
     public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        Terrain = GameObject.Find("Suelo");
-        Player = GameObject.Find("Jugador");
-        Enemy = GameObject.Find("Enemigo");
-        
         speed = 5;
     }
 
@@ -29,18 +24,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            listOfItems = GameObject.FindGameObjectsWithTag("Item");
-
-            Terrain.SetActive(false);
-            Player.SetActive(false);
-            Enemy.SetActive(false);
-            foreach(var item in listOfItems)
-            {
-                item.SetActive(false);
-            }
-
-            panel.SetActive(true);
-            Time.timeScale = 0;
+            manager.SetFinalMode(GameObject.FindGameObjectsWithTag("Item"));
         }
     }
 }

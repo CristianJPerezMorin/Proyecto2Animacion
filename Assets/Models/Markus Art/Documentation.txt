@@ -1,0 +1,6 @@
+
+Technical information :
+- Characters can add new clothes
+- Weapons can be customizable
+-Standard animations
+Doubts: markusartcontact@gmail.com
