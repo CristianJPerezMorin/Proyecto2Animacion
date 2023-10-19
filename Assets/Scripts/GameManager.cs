@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text FinalTexto;
     private bool gameEnded = false;
     public GameObject panel;
-    GameObject Terrain, Player, Enemy, Obstacle;
-    GameObject[] listOfItems;
+    GameObject Terrain, Player, Enemy;
 
     public bool GameEnded
     {
@@ -29,7 +28,6 @@ public class GameManager : MonoBehaviour
         Terrain.SetActive(false);
         Player.SetActive(false);
         Enemy.SetActive(false);
-        Obstacle.SetActive(false);
 
         if (!enemyCatch)
         {
@@ -47,7 +45,6 @@ public class GameManager : MonoBehaviour
         Terrain = GameObject.Find("Suelo");
         Player = GameObject.Find("Jugador");
         Enemy = GameObject.Find("Enemigo");
-        Obstacle = GameObject.Find("Obstaculo");
     }
 
     void Update()
