@@ -24,30 +24,18 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
     }
 
-    public void SetFinalMode()
+    public void SetFinalMode(bool enemyCatch)
     {
         Terrain.SetActive(false);
         Player.SetActive(false);
         Enemy.SetActive(false);
         Obstacle.SetActive(false);
 
-        tiempo += Time.deltaTime;
-        double _ = Math.Round(tiempo, 2);
-        FinalTexto.text = "Felicidades por terminar el juego, tu tiempo ha sido de " + _ + " segundos.";
-
-        panel.SetActive(true);
-        Time.timeScale = 0;
-    }
-
-    public void SetFinalMode(GameObject[] listObjects)
-    {
-        Terrain.SetActive(false);
-        Player.SetActive(false);
-        Enemy.SetActive(false);
-        Obstacle.SetActive(false);
-        foreach(var item in listObjects)
+        if (!enemyCatch)
         {
-            item.SetActive(false);
+            tiempo += Time.deltaTime;
+            double _ = Math.Round(tiempo, 2);
+            FinalTexto.text = "Felicidades por terminar el juego, tu tiempo ha sido de " + _ + " segundos.";
         }
 
         panel.SetActive(true);
@@ -72,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
         if (GameEnded)
         {
-            SetFinalMode();
+            SetFinalMode(false);
         }
     }
 

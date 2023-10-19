@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            manager.SetFinalMode(GameObject.FindGameObjectsWithTag("Item"));
+            manager.SetFinalMode(true);
         }
     }
 }
