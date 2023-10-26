@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
     public GameObject enemy;
     GameObject player;
     public float offsetY, offsetZ;
+    public float camX;
     bool cambioCam;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,6 @@ public class CameraControl : MonoBehaviour
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offsetY, player.transform.position.z - offsetZ);
         }
 
-        transform.LookAt(enemy.transform.position);
+        //transform.LookAt(enemy.transform.position);
     }
 }

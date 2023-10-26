@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
     }
 
+    void RestartTime()
+    {
+        Time.timeScale = 1;
+    }
+
     public void SetFinalMode(bool enemyCatch)
     {
         Terrain.SetActive(false);
@@ -55,10 +60,15 @@ public class GameManager : MonoBehaviour
             double _ = Math.Round(tiempo, 2);
             textoContador.text = _.ToString();
         }
+        
         if (GameEnded)
         {
             SetFinalMode(false);
         }
+        
+        if(Time.timeScale != 1)
+        {
+            Invoke("RestartTime", 3);
+        }
     }
-
 }

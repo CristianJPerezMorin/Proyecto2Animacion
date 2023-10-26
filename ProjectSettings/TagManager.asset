@@ -9,6 +9,9 @@ TagManager:
   - Item
   - Light
   - Mensaje
+  - Climb
+  - Obstacle
+  - Platform
   layers:
   - Default
   - TransparentFX

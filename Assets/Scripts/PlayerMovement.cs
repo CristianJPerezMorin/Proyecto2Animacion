@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
     public float movX, movZ, speed;
     public double coleccionables;
     bool jump = false;
+    bool doubleJump = false;
+
+    void speedBoostFalse()
+    {
+        speed = 6;
+    }
 
     void Start()
     {
@@ -23,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         audio = GameObject.Find("SonidoRecoger").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        speed = 8;
+        speed = 6;
         coleccionables = 0;
     }
 
@@ -37,9 +43,24 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            speed = 12;
+            Invoke("speedBoostFalse", 1);
+        }
+
         if (coleccionables == 5)
         {
             gameManager.EndGame();
+        }
+
+        if (!doubleJump && jump)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fisicas.AddForce(Vector3.up * 20, ForceMode.Impulse);
+                doubleJump = true;
+            }
         }
     }
 
@@ -53,13 +74,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Platform"))
         {
             if (jump)
             {
-                fisicas.AddForce(Vector3.up * 30, ForceMode.Impulse);
-                jump = false;
+                fisicas.AddForce(Vector3.up * 20, ForceMode.Impulse);
+                doubleJump = false;
             }
+            jump = false;
         }
     }
 
