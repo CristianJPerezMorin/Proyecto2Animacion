@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -69,6 +70,12 @@ public class GameManager : MonoBehaviour
         if(Time.timeScale != 1)
         {
             Invoke("RestartTime", 3);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            SceneManager.LoadScene("Menu");
         }
     }
 }
