@@ -43,7 +43,15 @@ public class GameManager : MonoBehaviour
         }
 
         panel.SetActive(true);
+        gameEnded = false;
         Time.timeScale = 0;
+    }
+
+    public void ReturnMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene("Menu");
     }
 
     void Start()
@@ -74,8 +82,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.LoadScene("Menu");
+            ReturnMenu();
         }
     }
 }
