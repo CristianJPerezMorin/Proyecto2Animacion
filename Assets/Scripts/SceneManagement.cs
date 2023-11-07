@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class SceneManagement : MonoBehaviour
 {
+
     public GameObject MenuPrincipal;
     public GameObject MenuOpciones;
     AnimationButton animacion;
+    private Locale actualLanguage;
+
+    private void Update()
+    {
+        actualLanguage = LocalizationSettings.SelectedLocale;
+    }
 
     public void StartGame()
     {
@@ -26,6 +35,44 @@ public class SceneManagement : MonoBehaviour
         {
             MenuPrincipal.SetActive(true);
             MenuOpciones.SetActive(false);
+        }
+    }
+
+    public void NextLanguage()
+    {
+        if(actualLanguage.Formatter.ToString() == "es")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
+            LocalizationSettings.SelectedLocale = _language;
+        }
+        else if (actualLanguage.Formatter.ToString() == "en")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
+            LocalizationSettings.SelectedLocale = _language;
+        }
+        else if (actualLanguage.Formatter.ToString() == "fr")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
+            LocalizationSettings.SelectedLocale = _language;
+        }
+    }
+
+    public void PreviousLanguage()
+    {
+        if (actualLanguage.Formatter.ToString() == "es")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
+            LocalizationSettings.SelectedLocale = _language;
+        }
+        else if (actualLanguage.Formatter.ToString() == "en")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
+            LocalizationSettings.SelectedLocale = _language;
+        }
+        else if (actualLanguage.Formatter.ToString() == "fr")
+        {
+            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
+            LocalizationSettings.SelectedLocale = _language;
         }
     }
 }

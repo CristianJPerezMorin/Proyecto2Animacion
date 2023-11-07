@@ -18,10 +18,10 @@ public class AnimationButton : MonoBehaviour
 
     public void Animacion()
     {
-        if (this.gameObject.transform.localScale == new Vector3(1, 1, 1))
+        if (this.gameObject.transform.localScale == new Vector3(1, 1, 1) || this.gameObject.transform.localScale == new Vector3(0.3f, 0.2f, 1))
         {
-            float newPosition = this.gameObject.transform.position.x - 430;
-            LeanTween.moveLocalX(this.gameObject, newPosition, 2);
+            float newPosition = this.gameObject.transform.position.x - 400;
+            LeanTween.moveLocalX(this.gameObject, newPosition, 2).setEaseInElastic();
         }
         else
         {

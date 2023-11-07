@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LanguageTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: LanguageTable
+  m_TableCollectionNameGuidString: 00da572b6816bde4f8f3b05f56397880
+  m_Entries:
+  - m_Id: 21703790592
+    m_Key: Iluminacion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 598806466560
+    m_Key: Sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 841270792192
+    m_Key: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 903145164800
+    m_Key: No Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1394784702464
+    m_Key: Empezar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1504105041920
+    m_Key: Opciones
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3030706117840732184
+  references:
+    version: 2
+    RefIds:
+    - rid: 3030706117840732184
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1699368281998
