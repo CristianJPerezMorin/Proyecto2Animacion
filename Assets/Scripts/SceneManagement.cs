@@ -10,7 +10,7 @@ public class SceneManagement : MonoBehaviour
 
     public GameObject MenuPrincipal;
     public GameObject MenuOpciones;
-    AnimationButton animacion;
+    public GameObject MenuIdioma;
     private Locale actualLanguage;
 
     private void Update()
@@ -37,6 +37,22 @@ public class SceneManagement : MonoBehaviour
             MenuOpciones.SetActive(false);
         }
     }
+
+    public void ChangeMenuLanguage()
+    {
+        if (MenuPrincipal.activeSelf)
+        {
+            MenuPrincipal.SetActive(false);
+            MenuIdioma.SetActive(true);
+        }
+        else
+        {
+            MenuPrincipal.SetActive(true);
+            MenuIdioma.SetActive(false);
+        }
+    }
+
+
 
     public void NextLanguage()
     {
@@ -74,5 +90,24 @@ public class SceneManagement : MonoBehaviour
             Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
             LocalizationSettings.SelectedLocale = _language;
         }
+    }
+
+
+    public void SetEnglish()
+    {
+        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
+        LocalizationSettings.SelectedLocale = _language;
+    }
+
+    public void SetSpain()
+    {
+        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
+        LocalizationSettings.SelectedLocale = _language;
+    }
+
+    public void SetFrench()
+    {
+        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
+        LocalizationSettings.SelectedLocale = _language;
     }
 }

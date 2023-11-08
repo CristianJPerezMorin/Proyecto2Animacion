@@ -12,6 +12,8 @@ TagManager:
   - Climb
   - Obstacle
   - Platform
+  - Button
+  - Image
   layers:
   - Default
   - TransparentFX
