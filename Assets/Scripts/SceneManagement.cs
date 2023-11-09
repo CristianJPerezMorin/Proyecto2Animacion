@@ -7,15 +7,16 @@ using UnityEngine.Localization.Settings;
 
 public class SceneManagement : MonoBehaviour
 {
-
     public GameObject MenuPrincipal;
     public GameObject MenuOpciones;
     public GameObject MenuIdioma;
-    private Locale actualLanguage;
 
-    private void Update()
+    private List<Locale> locales;
+    private int countLanguage = 2;
+
+    private void Start()
     {
-        actualLanguage = LocalizationSettings.SelectedLocale;
+        locales = LocalizationSettings.Instance.GetAvailableLocales().Locales;
     }
 
     public void StartGame()
@@ -56,58 +57,39 @@ public class SceneManagement : MonoBehaviour
 
     public void NextLanguage()
     {
-        if(actualLanguage.Formatter.ToString() == "es")
+        countLanguage++;
+        if(countLanguage == 3)
         {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
-            LocalizationSettings.SelectedLocale = _language;
+            countLanguage = 0;
         }
-        else if (actualLanguage.Formatter.ToString() == "en")
-        {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
-            LocalizationSettings.SelectedLocale = _language;
-        }
-        else if (actualLanguage.Formatter.ToString() == "fr")
-        {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
-            LocalizationSettings.SelectedLocale = _language;
-        }
+
+        LocalizationSettings.Instance.SetSelectedLocale(locales[countLanguage]);
     }
 
     public void PreviousLanguage()
     {
-        if (actualLanguage.Formatter.ToString() == "es")
+        countLanguage--;
+        if (countLanguage == -1)
         {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
-            LocalizationSettings.SelectedLocale = _language;
+            countLanguage = 2;
         }
-        else if (actualLanguage.Formatter.ToString() == "en")
-        {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
-            LocalizationSettings.SelectedLocale = _language;
-        }
-        else if (actualLanguage.Formatter.ToString() == "fr")
-        {
-            Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
-            LocalizationSettings.SelectedLocale = _language;
-        }
+
+        LocalizationSettings.Instance.SetSelectedLocale(locales[countLanguage]);
     }
 
 
     public void SetEnglish()
     {
-        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("en");
-        LocalizationSettings.SelectedLocale = _language;
+        LocalizationSettings.Instance.SetSelectedLocale(locales[0]);
     }
 
     public void SetSpain()
     {
-        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("es");
-        LocalizationSettings.SelectedLocale = _language;
+        LocalizationSettings.Instance.SetSelectedLocale(locales[2]);
     }
 
     public void SetFrench()
     {
-        Locale _language = LocalizationSettings.AvailableLocales.GetLocale("fr");
-        LocalizationSettings.SelectedLocale = _language;
+        LocalizationSettings.Instance.SetSelectedLocale(locales[1]);
     }
 }

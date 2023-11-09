@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es
+  - m_GUID: a89dbd899a90e644696d9adc06f2feeb
+    m_Address: MusicaMenu
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: bd2b5b2706abd28418fcdfa18db2f149, type: 2}
   m_SchemaSet:

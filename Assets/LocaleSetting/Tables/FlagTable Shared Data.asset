@@ -19,10 +19,15 @@ MonoBehaviour:
     m_Key: Banderas
     m_Metadata:
       m_Items: []
+  - m_Id: 726235863158784
+    m_Key: Musicas
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 3030706117840732215
     - rid: 3030706141229744134
+    - rid: 3030706162763300867
   m_KeyGenerator:
     rid: 3030706117840732214
   references:
@@ -53,4 +58,15 @@ MonoBehaviour:
           - fr
           - es
         m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 3030706162763300867
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 726235863158784
+          m_TableCodes:
+          - en
+          - fr
+          - es
+        m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
